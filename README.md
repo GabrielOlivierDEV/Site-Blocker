@@ -16,4 +16,14 @@ I made this extension to keep me from distractions, it's pretty bare bones, feel
 
 ## ✅ To-Do List
 
-- [ ] Add a password system to remove a site.
+- [ ] **Add password protection for unblock**  
+      Implement a system that requires a password to remove a site from the blocked list — to prevent impulsive decisions.
+
+- [ ] **Implement "Focus Mode" with a timer**  
+      Create a feature where blocking is enforced for a specific duration (e.g., 25 minutes), ideal for productivity sessions.
+
+- [ ] **Allow disabling blocking without deleting sites**  
+      Add a toggle to temporarily pause the blocking without losing the saved list of sites.
+
+- [ ] **Rebrand the extension with a better name**  
+      Think of a more unique or appealing name that better reflects the purpose and tone of the extension.
