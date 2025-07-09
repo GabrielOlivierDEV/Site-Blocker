@@ -1,6 +1,7 @@
+/* Site Blocker Extension Styles */
 
     body {
-      font-family:  'Roboto', sans-serif;
+      font-family: 'Roboto', sans-serif;
       padding: 10px;
       width: 300px;
     }
@@ -20,13 +21,13 @@
       margin-top: 5px;
     }
     button.remove {
-        background: red;
-        color: white;
-        border: none;
-        padding: 2px 10px;
-        font-size: 12px;
-        border-radius: 12px;
-        cursor: pointer;
-        width: auto;
-        min-width: 0;
+      background: red;
+      color: white;
+      border: none;
+      padding: 2px 10px;
+      font-size: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      width: auto;
+      min-width: 0;
     }
