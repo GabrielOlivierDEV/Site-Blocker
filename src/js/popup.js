@@ -1,4 +1,4 @@
-// This script manages the popup for the site blocker extension,
+// This script manages the popup for the site blocker extension.
 
 const siteInput = document.getElementById('siteInput');
 const addBtn = document.getElementById('addBtn');

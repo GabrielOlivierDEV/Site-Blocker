@@ -1,4 +1,5 @@
 // This script checks if the current site is in the blocked list and redirects to blocked.html if it is.
+
 console.log("[Site Blocker] contentBlocker.js loaded");
 
 chrome.storage.local.get(['blockedSites'], (result) => {
