@@ -1,0 +1,24 @@
+<!-- This is the popup for the Chrome extension that allows users to add sites to a block list. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/styles.css">
+  <title>Site Blocker</title>
+</head>
+<body>
+  <h2>Block sites:</h2>
+  <input type="text" id="siteInput" placeholder="ex: facebook.com/*" />
+  <button id="addBtn">Add</button>
+  <ul id="siteList"></ul>
+
+  <script src="src/js/popup.js"></script>
+</body>
+</html>
