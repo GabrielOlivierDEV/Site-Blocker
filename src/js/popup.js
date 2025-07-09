@@ -1,3 +1,5 @@
+// This script manages the popup for the site blocker extension,
+
 const siteInput = document.getElementById('siteInput');
 const addBtn = document.getElementById('addBtn');
 const siteList = document.getElementById('siteList');
@@ -90,3 +92,9 @@ function removeSite(index) {
 
 addBtn.addEventListener('click', addSite);
 loadSites();
+siteInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    addSite();
+  }
+});
