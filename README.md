@@ -13,3 +13,7 @@ I made this extension to keep me from distractions, it's pretty bare bones, feel
 - Persistent list using `chrome.storage`
 - Built with Manifest V3 (`declarativeNetRequest`)
 - Includes content script fallback for better reliability (e.g., when clicking links from Google)
+
+## ✅ To-Do List
+
+- [ ] Add a password system to remove a site.
