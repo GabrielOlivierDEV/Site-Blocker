@@ -1,9 +1,8 @@
-// This script manages the popup for the site blocker extension.
-
 const siteInput = document.getElementById('siteInput');
 const addBtn = document.getElementById('addBtn');
 const siteList = document.getElementById('siteList');
 
+// Função para normalizar domínio
 function normalizeDomain(url) {
   try {
     if (!url.startsWith("http")) url = "https://" + url;
@@ -14,6 +13,7 @@ function normalizeDomain(url) {
   }
 }
 
+// Renderiza a lista no popup
 function renderList(sites) {
   siteList.innerHTML = '';
   sites.forEach((site, index) => {
@@ -30,6 +30,7 @@ function renderList(sites) {
   });
 }
 
+// Carrega a lista do storage
 function loadSites() {
   chrome.storage.local.get(['blockedSites'], (result) => {
     const sites = result.blockedSites || [];
@@ -37,6 +38,7 @@ function loadSites() {
   });
 }
 
+// Atualiza as regras de bloqueio usando declarativeNetRequest
 function updateRules(sites) {
   chrome.declarativeNetRequest.getDynamicRules((existingRules) => {
     const removeRuleIds = existingRules.map(rule => rule.id);
@@ -48,7 +50,8 @@ function updateRules(sites) {
         redirect: { extensionPath: "/blocked.html" }
       },
       condition: {
-        urlFilter: site,
+        // Bloqueia domínio e subdomínios com http ou https
+        urlFilter: `|http*://*.${site}/`,
         resourceTypes: ["main_frame"]
       }
     }));
@@ -60,6 +63,7 @@ function updateRules(sites) {
   });
 }
 
+// Adiciona um novo site à lista
 function addSite() {
   const rawInput = siteInput.value.trim();
   const normalized = normalizeDomain(rawInput);
@@ -79,6 +83,7 @@ function addSite() {
   siteInput.value = '';
 }
 
+// Remove site da lista
 function removeSite(index) {
   chrome.storage.local.get(['blockedSites'], (result) => {
     let sites = result.blockedSites || [];
@@ -90,11 +95,13 @@ function removeSite(index) {
   });
 }
 
+// Event listeners
 addBtn.addEventListener('click', addSite);
-loadSites();
 siteInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
     addSite();
   }
 });
+
+loadSites();
