@@ -2,7 +2,7 @@ const siteInput = document.getElementById('siteInput');
 const addBtn = document.getElementById('addBtn');
 const siteList = document.getElementById('siteList');
 
-// Função para normalizar domínio
+// Function to normalize a domain name
 function normalizeDomain(url) {
   try {
     if (!url.startsWith("http")) url = "https://" + url;
@@ -13,7 +13,7 @@ function normalizeDomain(url) {
   }
 }
 
-// Renderiza a lista no popup
+// Render the list of blocked sites in the popup
 function renderList(sites) {
   siteList.innerHTML = '';
   sites.forEach((site, index) => {
@@ -30,7 +30,7 @@ function renderList(sites) {
   });
 }
 
-// Carrega a lista do storage
+// Load the list of blocked sites from local storage
 function loadSites() {
   chrome.storage.local.get(['blockedSites'], (result) => {
     const sites = result.blockedSites || [];
@@ -38,7 +38,7 @@ function loadSites() {
   });
 }
 
-// Atualiza as regras de bloqueio usando declarativeNetRequest
+// Update blocking rules using declarativeNetRequest
 function updateRules(sites) {
   chrome.declarativeNetRequest.getDynamicRules((existingRules) => {
     const removeRuleIds = existingRules.map(rule => rule.id);
@@ -50,7 +50,7 @@ function updateRules(sites) {
         redirect: { extensionPath: "/blocked.html" }
       },
       condition: {
-        // Bloqueia domínio e subdomínios com http ou https
+        // Block domain and subdomains with http or https
         urlFilter: `|http*://*.${site}/`,
         resourceTypes: ["main_frame"]
       }
@@ -63,7 +63,7 @@ function updateRules(sites) {
   });
 }
 
-// Adiciona um novo site à lista
+// Add a new site to the blocked list
 function addSite() {
   const rawInput = siteInput.value.trim();
   const normalized = normalizeDomain(rawInput);
@@ -83,7 +83,7 @@ function addSite() {
   siteInput.value = '';
 }
 
-// Remove site da lista
+// Remove a site from the blocked list
 function removeSite(index) {
   chrome.storage.local.get(['blockedSites'], (result) => {
     let sites = result.blockedSites || [];
