@@ -1,7 +1,7 @@
 # 🚫 Site Blocker - Chromium Extension
 
 **Site Blocker** is a lightweight and privacy-friendly browser extension for Chromium-based browsers (Chrome, Edge, Brave, etc.) that blocks access to websites you choose.
-I made this extension to keep me from distractions, it's pretty bare bones, feel free to contribute to this little project.
+I made this extension to keep me from distractions. It's pretty bare bones, feel free to contribute to this little project.
 
 ## ✨ Features
 
